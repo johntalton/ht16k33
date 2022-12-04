@@ -1,43 +1,46 @@
 import { I2CAddressedBus } from '@johntalton/and-other-delights'
 
+import { Common } from './common.js'
+import { BlinkRate, Layout } from './defs.js'
 
-// System Setup
-export const SS = 0b0010 << 4
-
-export const OSCILLATOR_ON = 0b1
-export const OSCILLATOR_OFF = 0b0
-
-// Row/INT Set
-export const RIS = 0b1010 << 4
-
-// Display Setup
-export const DS = 0b1000 << 4
-
-export const DISPLAY_ON = 0b1
-export const DISPLAY_OFF = 0b0
-
-export const BLINK_OFF = 0b00 << 1
-export const BLINK_2_HZ = 0b01 << 1
-export const BLINK_1_HZ = 0b10 << 1
-export const BLINK_HALF_HZ = 0b11 << 1
-
-// Digital Dimming Data
-export const DDD = 0b1110 << 4
-
-
-// Key Data Memory 0x40 - 0x45
-export const KDM = 0x40
-
-// INT register flag
-export const IRF = 0x60
-
-
-export async function open(bus: I2CAddressedBus) {
-  await bus.i2cWrite(Uint8Array.from([SS | OSCILLATOR_ON ]))
-  await bus.i2cWrite(Uint8Array.from([DS | DISPLAY_ON | BLINK_OFF ]))
-  await bus.i2cWrite(Uint8Array.from([DDD | 1 ]))
-}
 
 export class HT16K33 {
+  #bus
+
+  static from(bus: I2CAddressedBus) {
+    return new HT16K33(bus)
+  }
+
+  constructor(bus: I2CAddressedBus) { this.#bus = bus }
+
+  async enableOscillator() { return this.setOscillator(true) }
+  async disableOscillator() { return this.setOscillator(false) }
+  async setOscillator(enable: boolean) {
+    return Common.setOscillator(this.#bus, enable)
+  }
+
+  async enableInterruptPinMode() { return this.setInterruptPinMode(true) }
+  async disableInterruptPinMode() { return this.setInterruptPinMode(false) }
+  async setInterruptPinMode(enable: boolean) {
+    return Common.setInterruptPinMode(this.#bus, enable)
+  }
+
+  async setDisplay(enable: boolean, blinkRate: BlinkRate) {
+    return Common.setDisplay(this.#bus, enable, blinkRate)
+  }
+
+
+  async setDimming(value: number) {
+    return Common.setDimming(this.#bus, value)
+  }
+
+
+  async setMemory(layout: Layout) {
+    return Common.setMemory(this.#bus, layout)
+  }
+
+  // async getInterrupt() {
+  //   return Common.getInterrupt(this.#bus)
+  // }
 
 }
