@@ -45,6 +45,9 @@ export class Common {
 			| (comLayout.row2 ?? false ? 1 : 0) << 2
 			| (comLayout.row3 ?? false ? 1 : 0) << 3
 			| (comLayout.row4 ?? false ? 1 : 0) << 4
+			| (comLayout.row5 ?? false ? 1 : 0) << 5
+			| (comLayout.row6 ?? false ? 1 : 0) << 6
+			| (comLayout.row7 ?? false ? 1 : 0) << 7
 		}
 
 		const com0row07 = layoutCom(layout.com0)
