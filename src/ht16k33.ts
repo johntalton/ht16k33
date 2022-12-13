@@ -13,6 +13,8 @@ export class HT16K33 {
 
   constructor(bus: I2CAddressedBus) { this.#bus = bus }
 
+  get name() { return this.#bus.name }
+
   async enableOscillator() { return this.setOscillator(true) }
   async disableOscillator() { return this.setOscillator(false) }
   async setOscillator(enable: boolean) {
