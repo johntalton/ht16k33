@@ -3,7 +3,7 @@ import { SevenSegmentDotLayout } from './defs.js'
 // https://github.com/dmadison/LED-Segment-ASCII
 export const DEFAULT_VALUE = 0b00000000
 
-const SEVENT_SEGMENT_ASCII: { [key: string]: number } = {
+const SEVEN_SEGMENT_ASCII: { [key: string]: number } = {
 	' ': 0b00000000,
 	'!': 0b10000110,
 	'"': 0b00100010,
@@ -103,7 +103,7 @@ const SEVENT_SEGMENT_ASCII: { [key: string]: number } = {
 }
 
 export function ledSegmentASCII(digit: string): SevenSegmentDotLayout {
-  const value = SEVENT_SEGMENT_ASCII[digit] ?? DEFAULT_VALUE
+  const value = SEVEN_SEGMENT_ASCII[digit] ?? DEFAULT_VALUE
 
   return {
     A: (value & 0b0000_0001) !== 0,

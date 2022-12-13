@@ -1,5 +1,4 @@
-import { Layout,
-	ComLayout } from '../defs.js'
+import { Layout, ComLayout } from '../defs.js'
 import { FourSevenSegmentDotColonLayout, SevenSegmentDotLayout } from '../util/defs.js'
 
 export class Adafruit_LED_BP056 {
