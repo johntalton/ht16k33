@@ -1,4 +1,4 @@
-import { SevenSegmentDotLayout } from './defs.js'
+import { FourSevenSegmentDotColonLayout, SevenSegmentDotLayout } from './defs.js'
 
 // https://github.com/dmadison/LED-Segment-ASCII
 export const DEFAULT_VALUE = 0b00000000
@@ -102,7 +102,7 @@ const SEVEN_SEGMENT_ASCII: { [key: string]: number } = {
 	///'del': 0b00000000
 }
 
-export function ledSegmentASCII(digit: string): SevenSegmentDotLayout {
+export function _ledSegmentASCII(digit: string): SevenSegmentDotLayout {
   const value = SEVEN_SEGMENT_ASCII[digit] ?? DEFAULT_VALUE
 
   return {
@@ -117,3 +117,16 @@ export function ledSegmentASCII(digit: string): SevenSegmentDotLayout {
   }
 }
 
+export class Font7SegmentASCII {
+	static encode4Digit(digits: string, colon: boolean): FourSevenSegmentDotColonLayout {
+		return {
+			colon,
+			digit: {
+				one: _ledSegmentASCII(digits[0]),
+				two: _ledSegmentASCII(digits[1]),
+				three: _ledSegmentASCII(digits[2]),
+				four: _ledSegmentASCII(digits[3])
+			}
+		}
+	}
+}

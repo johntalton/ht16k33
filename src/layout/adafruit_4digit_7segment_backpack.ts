@@ -1,9 +1,10 @@
 import { Layout, ComLayout } from '../defs.js'
 import { FourSevenSegmentDotColonLayout, SevenSegmentDotLayout } from '../util/defs.js'
 
-export class Adafruit_LED_BP056 {
-	static toLayout(layout: FourSevenSegmentDotColonLayout): Layout {
+export class Adafruit4Digit7SegmentBackpack {
+	static get productUrl() { return 'https://www.adafruit.com/product/1002' }
 
+	static toLayout(layout: FourSevenSegmentDotColonLayout): Layout {
 		function makeCom(digit: SevenSegmentDotLayout): ComLayout {
 			const { A, B, C, D, E, F, G, DP } = digit
 			return {

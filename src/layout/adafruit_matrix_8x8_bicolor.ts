@@ -11,7 +11,9 @@ export type SetPixel = {
 // pin 1 controls col 5 (1 indexed) mapped to row4 (0 indexed) on the device
 // and is Green, pin 2 is red
 
-export class Adafruit_Matrix_BiColor_8x8 {
+export class AdafruitMatrix8x8BiColor {
+	static get productUrl() { return 'https://www.adafruit.com/product/902' }
+
 	// static test() {
 	// 	function _compare() {
 

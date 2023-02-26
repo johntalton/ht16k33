@@ -1,41 +1,7 @@
 
-import { SevenSegmentDotLayout } from './defs.js'
+import { FourSevenSegmentDotColonLayout, SevenSegmentDotLayout } from './defs.js'
 
-export function encodeLayoutDSEG7(digit: string, DP: boolean): SevenSegmentDotLayout {
-	// https://www.keshikan.net/fonts-e.html
-	const dseg7: { [key: string]: string } = {
-		'a': 'A',
-		'b': 'b',
-		'c': 'c',
-		'd': 'd',
-		'e': 'E',
-		'f': 'F',
-		'g': 'G',
-		'h': 'h',
-		'i': 'i',
-		'j': 'J',
-		'k': 'k',
-		'l': 'L',
-		'm': 'M',
-		'n': 'n',
-		'o': 'o',
-		'p': 'P',
-		'q': 'q',
-		'r': 'r',
-		's': 'S',
-		't': 't',
-		'u': 'u',
-		'v': 'V',
-		'w': 'W',
-		'x': 'X',
-		'y': 'y',
-		'z': 'Z',
-	}
-
-	return encodeLayoutDigit(dseg7[digit.toLowerCase()] ?? digit, DP)
-}
-
-export function encodeLayoutDigit(digit: string, DP: boolean): SevenSegmentDotLayout {
+export function _encodeLayoutDigit(digit: string, DP: boolean): SevenSegmentDotLayout {
 	const font: { [key: string]: SevenSegmentDotLayout } = {
 		' ': { A: false, B: false, C: false, D: false, E: false, F: false, G: false, DP },
 		'-': { A: false, B: false, C: false, D: false, E: false, F: false, G:  true, DP },
@@ -97,5 +63,54 @@ export function encodeLayoutDigit(digit: string, DP: boolean): SevenSegmentDotLa
 	return font[digit] ?? { A:  true, B:  true, C:  true, D:  true, E:  true, F:  true, G:  true, DP:  true }
 }
 
+export function _encodeLayoutDSEG7(digit: string, DP: boolean): SevenSegmentDotLayout {
+	// https://www.keshikan.net/fonts-e.html
+	const dseg7: { [key: string]: string } = {
+		'a': 'A',
+		'b': 'b',
+		'c': 'c',
+		'd': 'd',
+		'e': 'E',
+		'f': 'F',
+		'g': 'G',
+		'h': 'h',
+		'i': 'i',
+		'j': 'J',
+		'k': 'k',
+		'l': 'L',
+		'm': 'M',
+		'n': 'n',
+		'o': 'o',
+		'p': 'P',
+		'q': 'q',
+		'r': 'r',
+		's': 'S',
+		't': 't',
+		'u': 'u',
+		'v': 'V',
+		'w': 'W',
+		'x': 'X',
+		'y': 'y',
+		'z': 'Z',
+	}
 
+	return _encodeLayoutDigit(dseg7[digit.toLowerCase()] ?? digit, DP)
+}
 
+export function encode4Digit(digit: string, DP: boolean) { return _encodeLayoutDSEG7(digit, DP) }
+
+export class Font7SegmentDSEG {
+	static encode4Digit(digits: string, colon: boolean): FourSevenSegmentDotColonLayout {
+		const dp = false
+
+		return {
+			colon: colon,
+			digit: {
+				one: _encodeLayoutDSEG7(digits[0], dp),
+				two: _encodeLayoutDSEG7(digits[1], dp),
+				three: _encodeLayoutDSEG7(digits[2], dp),
+				four: _encodeLayoutDSEG7(digits[3], dp)
+			}
+		}
+	}
+}
