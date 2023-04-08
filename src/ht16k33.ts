@@ -41,6 +41,10 @@ export class HT16K33 {
 		return Common.setMemory(this.#bus, layout)
 	}
 
+	async getMemory(): Promise<Layout> {
+		return Common.getMemory(this.#bus)
+	}
+
 	// async getInterrupt() {
 	//   return Common.getInterrupt(this.#bus)
 	// }

@@ -15,6 +15,19 @@ export const Bespoke: { [key: string]: string } = {
 	'-': '',
 	'.': '.',
 	'/': '',
+	'\\': 'HN',
+	'^': 'FH',
+	'_': 'D',
+	'`': 'H',
+	'|': 'JM',
+	':': '',
+	'<': 'KN',
+	'=': '',
+	'>': 'HL',
+	'?': 'ABG2M',
+	'@': '',
+	'~': 'ABCDEFG1G2HJKLMN',
+
 	'0': 'ABCDEFKL',
 	'1': 'BCK', // 'JM'
 	'2': 'ABDG2L',
@@ -25,18 +38,13 @@ export const Bespoke: { [key: string]: string } = {
 	'7': 'AKM',
 	'8': 'ABCDEFG1G2',
 	'9': 'ABCG2H',
-	':': '',
-	'<': 'KN',
-	'=': '',
-	'>': 'HL',
-	'?': 'ABG2M',
-	'@': '',
+
 	'A': 'ABCEFG1G2',
 	'B': 'ABCDG2JM',
 	'C': 'ADEF',
 	'D': 'ABCDJM',
-	'E': 'ADEFG1G2',
-	'F': 'AEFG1G2',
+	'E': 'ADEFG1', // 'ADEFG1G2',
+	'F': 'AEFG1', // 'AEFG1G2',
 	'G': 'ACDEFG2',
 	'H': 'BCEFG1G2',
 	'I': 'ADJM',
@@ -56,17 +64,11 @@ export const Bespoke: { [key: string]: string } = {
 	'W': 'BCEFJLN',
 	'X': 'HKLN',
 	'Y': 'HKM',
-	'Z': 'ADKL',
-	'\\': 'HN',
-	'^': 'FH',
-	'_': 'D',
-	'`': 'H',
-	'|': 'JM',
-	'~': 'ABCDEFG1G2HJKLMN'
+	'Z': 'ADKL'
 }
 
 export class Font14SegmentBespoke {
-	static encode4Digit(digit: string) {
+	static encode4Digit(digit: string, _colon: boolean) {
 		return FontUtil.digits4FromSegmentMap(Bespoke, digit)
 	}
 }

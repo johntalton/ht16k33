@@ -1,4 +1,4 @@
-import { FourSevenSegmentDotColonLayout, SevenSegmentDotLayout } from './defs.js'
+import { FourSevenSegmentDotColonLayout, SevenSegmentDotLayout } from '../util/defs.js'
 
 // https://github.com/dmadison/LED-Segment-ASCII
 export const DEFAULT_VALUE = 0b00000000

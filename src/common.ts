@@ -85,6 +85,45 @@ export class Common {
 		return bus.i2cWrite(memory)
 	}
 
+	static async getMemory(bus: I2CAddressedBus): Promise<Layout> {
+		await bus.i2cWrite(Uint8Array.from([ REGISTER.MEM ]))
+		const abuf = await bus.i2cRead(16)
+		const buf = new Uint8Array(abuf)
+
+		function makeCom(b0: number, b1: number): ComLayout {
+			return {
+				row0: ((b0 >> 0) & 0b1) === 0b1,
+				row1: ((b0 >> 1) & 0b1) === 0b1,
+				row2: ((b0 >> 2) & 0b1) === 0b1,
+				row3: ((b0 >> 3) & 0b1) === 0b1,
+				row4: ((b0 >> 4) & 0b1) === 0b1,
+				row5: ((b0 >> 5) & 0b1) === 0b1,
+				row6: ((b0 >> 6) & 0b1) === 0b1,
+				row7: ((b0 >> 7) & 0b1) === 0b1,
+
+				row8: ((b1 >> 0) & 0b1) === 0b1,
+				row9: ((b1 >> 1) & 0b1) === 0b1,
+				row10: ((b1 >> 2) & 0b1) === 0b1,
+				row11: ((b1 >> 3) & 0b1) === 0b1,
+				row12: ((b1 >> 4) & 0b1) === 0b1,
+				row13: ((b1 >> 5) & 0b1) === 0b1,
+				row14: ((b1 >> 6) & 0b1) === 0b1,
+				row15: ((b1 >> 7) & 0b1) === 0b1,
+			}
+		}
+
+		return {
+			com0: makeCom(buf[0], buf[1]),
+			com1: makeCom(buf[2], buf[3]),
+			com2: makeCom(buf[4], buf[5]),
+			com3: makeCom(buf[6], buf[7]),
+			com4: makeCom(buf[8], buf[9]),
+			com5: makeCom(buf[10], buf[11]),
+			com6: makeCom(buf[12], buf[13]),
+			com7: makeCom(buf[14], buf[15])
+		}
+	}
+
 	// static async getInterrupt(bus: I2CAddressedBus) {
 
 	// }

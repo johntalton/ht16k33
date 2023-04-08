@@ -75,7 +75,7 @@ const aliases: { [key: string]: string } = {
 }
 
 export class Font7SegmentDSEG {
-	static encode4Digit(digit: string) {
+	static encode4Digit(digit: string, _colon: boolean) {
 		const resolvedDigit = aliases[digit] ?? digit
 
 		return FontUtil.digits4FromSegmentMap(DSEG7, resolvedDigit)

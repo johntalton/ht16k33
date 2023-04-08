@@ -1,6 +1,35 @@
 import { FontUtil } from './font.js'
 
 
+// {
+//   'A': 'ABCEFG12',
+//   'B': 'ABCDFG12',
+//   'C': 'ADEFG2',
+//   'D': 'BCDEG12',
+//   'E': 'ADEFG12',
+//   'F': 'AEFG12',
+//   'G': 'ACDEFG2',
+//   'H': 'BCEFG12',
+//   'I': 'BC',
+//   'J': 'CDEG2',
+//   'K': 'EFG1HKN',
+//   'L': 'DEF',
+//   'M': 'ACEGIK',
+//   'N': 'ABCEGHKN',
+//   'O': 'ABCDEFG2',
+//   'P': 'ABEFG1',
+//   'Q': 'ABCDEFG2K',
+//   'R': 'ABEFG1K',
+//   'S': 'ACDFG2',
+//   'T': 'AIK',
+//   'U': 'BCDEFG2',
+//   'V': 'EFIJ',
+//   'W': 'BDFHJMP',
+//   'X': 'HIJKN',
+//   'Y': 'HIKM',
+//   'Z': 'ADG12KN'
+// }
+
 // const OpenAI14Segment = {
 //   'A': 'BCEFG1G2KMN',
 //   'B': 'ABCDEFG1G2JKLN',

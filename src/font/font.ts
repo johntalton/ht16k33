@@ -1,5 +1,5 @@
-
 export class FontUtil {
+
 	static segmentMapFromString(segmentString: string) {
 		const hasG = (
 			!segmentString?.includes('G1') &&
