@@ -41,24 +41,24 @@ export class Common {
 			if(comLayout === undefined) { return [0, 0] }
 
 			const row07 = (comLayout.row0 ?? false ? 1 : 0)
-			| (comLayout.row1 ?? false ? 1 : 0) << 1
-			| (comLayout.row2 ?? false ? 1 : 0) << 2
-			| (comLayout.row3 ?? false ? 1 : 0) << 3
-			| (comLayout.row4 ?? false ? 1 : 0) << 4
-			| (comLayout.row5 ?? false ? 1 : 0) << 5
-			| (comLayout.row6 ?? false ? 1 : 0) << 6
-			| (comLayout.row7 ?? false ? 1 : 0) << 7
+				| (comLayout.row1 ?? false ? 1 : 0) << 1
+				| (comLayout.row2 ?? false ? 1 : 0) << 2
+				| (comLayout.row3 ?? false ? 1 : 0) << 3
+				| (comLayout.row4 ?? false ? 1 : 0) << 4
+				| (comLayout.row5 ?? false ? 1 : 0) << 5
+				| (comLayout.row6 ?? false ? 1 : 0) << 6
+				| (comLayout.row7 ?? false ? 1 : 0) << 7
 
-		const row815 = (comLayout.row8 ?? false ? 1 : 0)
-		| (comLayout.row9 ?? false ? 1 : 0) << 1
-		| (comLayout.row10 ?? false ? 1 : 0) << 2
-		| (comLayout.row11 ?? false ? 1 : 0) << 3
-		| (comLayout.row12 ?? false ? 1 : 0) << 4
-		| (comLayout.row13 ?? false ? 1 : 0) << 5
-		| (comLayout.row14 ?? false ? 1 : 0) << 6
-		| (comLayout.row15 ?? false ? 1 : 0) << 7
+			const row815 = (comLayout.row8 ?? false ? 1 : 0)
+				| (comLayout.row9 ?? false ? 1 : 0) << 1
+				| (comLayout.row10 ?? false ? 1 : 0) << 2
+				| (comLayout.row11 ?? false ? 1 : 0) << 3
+				| (comLayout.row12 ?? false ? 1 : 0) << 4
+				| (comLayout.row13 ?? false ? 1 : 0) << 5
+				| (comLayout.row14 ?? false ? 1 : 0) << 6
+				| (comLayout.row15 ?? false ? 1 : 0) << 7
 
-		return [ row07, row815 ]
+			return [ row07, row815 ]
 		}
 
 		const [ com0row07, com0row815 ] = layoutCom(layout.com0)
