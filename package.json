@@ -1,6 +1,6 @@
 {
 	"name": "@johntalton/ht16k33",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"type": "module",
 	"exports": {
 		".": "./lib/index.js"
@@ -10,10 +10,10 @@
 		"build:watch": "tsc --watch"
 	},
 	"dependencies": {
-		"@johntalton/and-other-delights": "^6.0.0",
-		"@johntalton/bitsmush": "^1.0.0"
+		"@johntalton/and-other-delights": "^7.0.0",
+		"@johntalton/bitsmush": "^1.0.1"
 	},
 	"devDependencies": {
-		"typescript": "^4.9.3"
+		"typescript": "^5.4.5"
 	}
 }
