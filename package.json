@@ -1,10 +1,11 @@
 {
 	"name": "@johntalton/ht16k33",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"type": "module",
 	"exports": {
 		".": "./lib/index.js"
 	},
+	"files": [ "src/**/*.ts", "lib/**/*.js", "lib/**/*.map" ],
 	"scripts": {
 		"build": "tsc",
 		"build:watch": "tsc --watch"
