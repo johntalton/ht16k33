@@ -78,4 +78,9 @@ export class AdafruitMatrix8x8BiColor {
 			com7: makeCom(7)
 		}
 	}
+
+	static fromLayout(layout: Layout): Array<SetPixel> {
+
+		return {}
+	}
 }

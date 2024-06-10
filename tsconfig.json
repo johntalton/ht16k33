@@ -14,7 +14,7 @@
 
     "skipLibCheck": true,
 
-    "noEmitOnError": true,
+    "noEmitOnError": false,
     "noUnusedParameters": true,
 
     "strict": true,
@@ -42,7 +42,9 @@
   },
   "compileOnSave": true,
   "include": [
-      "src/*.ts"
+      "src/*.ts",
+      "src/font/*.ts",
+      "src/layout/*.ts"
   ],
   "exclude": [
       "node_modules"

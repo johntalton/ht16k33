@@ -87,8 +87,10 @@ export class Common {
 
 	static async getMemory(bus: I2CAddressedBus): Promise<Layout> {
 		await bus.i2cWrite(Uint8Array.from([ REGISTER.MEM ]))
-		const abuf = await bus.i2cRead(16)
-		const buf = new Uint8Array(abuf)
+		const buffer = await bus.i2cRead(16)
+		const u8 = ArrayBuffer.isView(buffer) ?
+			new Uint8Array(buffer.buffer, buffer.byteLength, buffer.byteOffset) :
+			new Uint8Array(buffer)
 
 		function makeCom(b0: number, b1: number): ComLayout {
 			return {
@@ -113,14 +115,14 @@ export class Common {
 		}
 
 		return {
-			com0: makeCom(buf[0], buf[1]),
-			com1: makeCom(buf[2], buf[3]),
-			com2: makeCom(buf[4], buf[5]),
-			com3: makeCom(buf[6], buf[7]),
-			com4: makeCom(buf[8], buf[9]),
-			com5: makeCom(buf[10], buf[11]),
-			com6: makeCom(buf[12], buf[13]),
-			com7: makeCom(buf[14], buf[15])
+			com0: makeCom(u8[0], u8[1]),
+			com1: makeCom(u8[2], u8[3]),
+			com2: makeCom(u8[4], u8[5]),
+			com3: makeCom(u8[6], u8[7]),
+			com4: makeCom(u8[8], u8[9]),
+			com5: makeCom(u8[10], u8[11]),
+			com6: makeCom(u8[12], u8[13]),
+			com7: makeCom(u8[14], u8[15])
 		}
 	}
 

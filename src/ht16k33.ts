@@ -17,9 +17,7 @@ export class HT16K33 {
 
 	async enableOscillator() { return this.setOscillator(true) }
 	async disableOscillator() { return this.setOscillator(false) }
-	async setOscillator(enable: boolean) {
-		return Common.setOscillator(this.#bus, enable)
-	}
+	async setOscillator(enable: boolean) { return Common.setOscillator(this.#bus, enable) }
 
 	async enableInterruptPinMode() { return this.setInterruptPinMode(true) }
 	async disableInterruptPinMode() { return this.setInterruptPinMode(false) }

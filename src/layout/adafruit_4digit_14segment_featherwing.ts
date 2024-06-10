@@ -35,4 +35,35 @@ export class Adafruit4Digit14SegmentFeatherwing {
 			com3: makeCom(layout.digit.four)
 		}
 	}
+
+	static fromLayout(layout: Layout): FourFourteenSegmentDotLayout {
+		function fromCom(com?: ComLayout) {
+			return {
+				A: com?.row0 ?? false,
+				B: com?.row1 ?? false,
+				C: com?.row2 ?? false,
+				D: com?.row3 ?? false,
+				E: com?.row4 ?? false,
+				F: com?.row5 ?? false,
+				G1: com?.row6 ?? false,
+				G2: com?.row7 ?? false,
+				H: com?.row8 ?? false,
+				J: com?.row9 ?? false,
+				K: com?.row10 ?? false,
+				L: com?.row11 ?? false,
+				M: com?.row12 ?? false,
+				N: com?.row13 ?? false,
+				DP: com?.row14 ?? false
+			}
+		}
+
+		return {
+			digit: {
+				one: fromCom(layout.com0),
+				two: fromCom(layout.com1),
+				three: fromCom(layout.com3),
+				four: fromCom(layout.com4)
+			}
+		}
+	}
 }

@@ -1,17 +1,24 @@
 {
 	"name": "@johntalton/ht16k33",
-	"version": "1.0.3",
+	"version": "1.1.0",
 	"type": "module",
 	"exports": {
-		".": "./lib/index.js"
+		".": "./lib/index.js",
+		"./fonts": "./lib/font/index.js",
+		"./layouts": "./lib/layout/index.js"
 	},
-	"files": [ "src/**/*.ts", "lib/**/*.js", "lib/**/*.map" ],
+	"files": [
+		"src/**/*.ts",
+		"lib/**/*.js",
+		"lib/**/*.map",
+		"lib/**/*.d.ts"
+	],
 	"scripts": {
 		"build": "tsc",
 		"build:watch": "tsc --watch"
 	},
 	"dependencies": {
-		"@johntalton/and-other-delights": "^7.0.0",
+		"@johntalton/and-other-delights": "^8.1.0",
 		"@johntalton/bitsmush": "^1.0.1"
 	},
 	"devDependencies": {
