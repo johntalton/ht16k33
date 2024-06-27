@@ -79,8 +79,8 @@ export class AdafruitMatrix8x8BiColor {
 		}
 	}
 
-	static fromLayout(layout: Layout): Array<SetPixel> {
-
-		return {}
+	static fromLayout(_layout: Layout): Array<SetPixel> {
+		throw new Error('no implementation')
+		//return {}
 	}
 }

@@ -89,7 +89,7 @@ export class Common {
 		await bus.i2cWrite(Uint8Array.from([ REGISTER.MEM ]))
 		const buffer = await bus.i2cRead(16)
 		const u8 = ArrayBuffer.isView(buffer) ?
-			new Uint8Array(buffer.buffer, buffer.byteLength, buffer.byteOffset) :
+			new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength) :
 			new Uint8Array(buffer)
 
 		function makeCom(b0: number, b1: number): ComLayout {
