@@ -4,7 +4,7 @@ LED driver commonly used for many different type of displays
 
 [![npm Version](http://img.shields.io/npm/v/@johntalton/ht16k33.svg)](https://www.npmjs.com/package/@johntalton/ht16k33)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/johntalton/ht16k33)
-[![CI](https://github.com/johntalton/ht16k33/actions/workflows/CI.yaml/badge.svg)](https://github.com/johntalton/ht16k33/actions/workflows/CI.yaml)
+[![CI](https://github.com/johntalton/ht16k33/actions/workflows/CI.yml/badge.svg)](https://github.com/johntalton/ht16k33/actions/workflows/CI.yml)
 
 
 ## Layout
